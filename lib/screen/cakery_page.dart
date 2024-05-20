@@ -1,3 +1,4 @@
+import 'package:cakery_app_flutter/screen/cakery_detail.dart';
 import 'package:flutter/material.dart';
 
 import '../data/cake.dart';
@@ -29,6 +30,7 @@ class CookiePage extends StatelessWidget {
               itemCount: listCakes.length,
             ),
           ),
+          const SizedBox(height: 15.0),
         ],
       ),
     );
@@ -41,17 +43,30 @@ class CookiePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return CakeryDetail(
+                    assetPath: cake.imageUrl,
+                    cookiePrice: cake.price,
+                    cookieName: cake.name);
+              },
+            ),
+          );
+        },
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 3.0,
-                    blurRadius: 5.0)
-              ],
-              color: Colors.white),
+            borderRadius: BorderRadius.circular(15.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 3.0,
+                blurRadius: 5.0,
+              )
+            ],
+            color: Colors.white,
+          ),
           child: Column(
             children: [
               Padding(
@@ -72,14 +87,14 @@ class CookiePage extends StatelessWidget {
                 ),
               ),
               Hero(
-                tag: cake.nameUrl,
+                tag: cake.imageUrl,
                 child: Container(
                   height: 90,
                   width: 90,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
-                      image: AssetImage(cake.nameUrl),
+                      image: AssetImage(cake.imageUrl),
                       fit: BoxFit.contain,
                     ),
                   ),

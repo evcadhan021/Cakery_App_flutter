@@ -36,7 +36,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           "- Ramdhan Cakery -",
           style: TextStyle(
             fontFamily: 'Varela',
-            fontSize: 20.0,
+            fontSize: 17.0,
             color: Color(0xFF545D68),
           ),
         ),
@@ -51,8 +51,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 15.0),
         children: [
+          const SizedBox(
+            height: 5.0,
+          ),
           const Text(
             'Menu',
             style: TextStyle(
@@ -60,31 +63,31 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 fontSize: 42.0,
                 fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 1.0),
           TabBar(
             controller: _tabController,
             indicatorColor: Colors.transparent,
             labelColor: const Color(0xFFC88D67),
             isScrollable: true,
-            labelPadding: const EdgeInsets.only(right: 25),
+            labelPadding: const EdgeInsets.only(right: 30),
             unselectedLabelColor: const Color(0xFFCDCDCD),
             tabs: const [
               Tab(
                 child: Text(
                   'Cake Box',
-                  style: TextStyle(fontFamily: 'Varela', fontSize: 19.0),
+                  style: TextStyle(fontFamily: 'Varela', fontSize: 21.0),
                 ),
               ),
               Tab(
                 child: Text(
                   'Cake Slice',
-                  style: TextStyle(fontFamily: 'Varela', fontSize: 19.0),
+                  style: TextStyle(fontFamily: 'Varela', fontSize: 21.0),
                 ),
               ),
               Tab(
                 child: Text(
                   'Chiffon',
-                  style: TextStyle(fontFamily: 'Varela', fontSize: 19.0),
+                  style: TextStyle(fontFamily: 'Varela', fontSize: 21.0),
                 ),
               )
             ],
